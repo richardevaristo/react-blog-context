@@ -15,6 +15,20 @@ const reducer = (state, action) => {
                 ...state,
                 blogs: state.blogs.filter(blog => blog.id !== action.payload)
             }
+        case 'UPDATE_BLOG':
+            return {
+                ...state,
+                blogs: state.blogs.map(blog => {
+                    if(blog.id === action.payload.id){
+                        action.payload.targets.map(item => {
+                            this.setState({
+                                [item.name] : item.value
+                            })
+                        })
+                    }
+                    return blog;
+                })
+            }
         default :
             return state
     }
