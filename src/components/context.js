@@ -10,6 +10,11 @@ const reducer = (state, action) => {
                 ...state,
                 blogs: [action.payload, ...state.blogs]
             }
+        case 'DELETE_BLOG':
+            return {
+                ...state,
+                blogs: state.blogs.filter(blog => blog.id !== action.payload)
+            }
         default :
             return state
     }

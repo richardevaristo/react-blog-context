@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { Consumer } from '../context'
 
 // Array of month names 
@@ -14,6 +13,16 @@ export default class BlogItem extends Component {
             showBlog: false
         }
         this.toggleShowContent = this.toggleShowContent.bind(this);
+        this.deleteBlog = this.deleteBlog.bind(this)
+    }
+
+    deleteBlog = (id, dispatch) => {
+        dispatch(
+            {
+                type: 'DELETE_BLOG',
+                payload: id
+            }
+        )
     }
 
     toggleShowContent = () => this.setState({ 
@@ -29,28 +38,20 @@ export default class BlogItem extends Component {
             <nav className="level">
                 <div className="level-left">
                     <p className="level-item">
-                        <Link to="/blog/author/:name" className="blogPostLinkStyles">
-                            <i className="fa fa-user blogPostLinkIconStyles"></i> {' '}
-                            {author}
-                        </Link>
+                        <i className="fa fa-user blogPostLinkIconStyles"></i> {' '}
+                        {author}
                     </p>
                     <p className="level-item">
-                        <Link to="/blog/date/:date" className="blogPostLinkStyles">
-                            <i className="fa fa-calendar blogPostLinkIconStyles"></i> {' '}
-                            {this.convertDate(created_at)}
-                        </Link>
+                        <i className="fa fa-calendar blogPostLinkIconStyles"></i> {' '}
+                        {this.convertDate(created_at)}
                     </p>
                     <p className="level-item">
-                        <Link to="/blog/category/:category" className="blogPostLinkStyles">
-                            <i className="fa fa-list-alt blogPostLinkIconStyles"></i> {' '}
-                            {category}
-                        </Link>
+                        <i className="fa fa-list-alt blogPostLinkIconStyles"></i> {' '}
+                        {category}
                     </p>
                     <p className="level-item">
-                        <Link to="/blog/tag/:name" className="blogPostLinkStyles">
-                            <i className="fa fa-tags blogPostLinkIconStyles"></i> {' '}
-                            Travel
-                        </Link>
+                        <i className="fa fa-tags blogPostLinkIconStyles"></i> {' '}
+                        Travel
                     </p>
                 </div>
             </nav>
@@ -70,7 +71,7 @@ export default class BlogItem extends Component {
         return (
             <Consumer>
                 {value => {
-                    // const { dispatch } = value;
+                    const { dispatch } = value;
                     return (
                         <React.Fragment>
                         <div className="box">
@@ -81,7 +82,11 @@ export default class BlogItem extends Component {
                                     onClick   = { this.toggleShowContent }
                                     style     = { {cursor:'pointer'} }
                                 ></i>
-                                
+                                <i 
+                                    className = "fa fa-times is-pulled-right has-text-danger"
+                                    onClick   = {() => this.deleteBlog(this.props.blog.id,dispatch) }
+                                    style     = {{cursor: 'pointer'}}
+                                ></i>
                             </h1>
                             {this.state.showBlog && this.showContent(this.props.blog)}
                         </div>

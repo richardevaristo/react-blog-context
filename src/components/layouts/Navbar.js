@@ -5,7 +5,7 @@ export default class Navbar extends Component {
   render() {
     return (
         <React.Fragment>
-            <nav className="navbar">
+            <nav className="navbar is-info">
                 <div className="navbar-brand">
                     <Link to="/" className="navbar-item">
                         Blog
