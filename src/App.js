@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from './components/context';
+import 'bulma/css/bulma.css';
 // Components
-import Header from './components/header/Header';
-import Main from './components/main/Main';
-import Footer from './components/footer/Footer';
+import Header from './components/layouts/Header';
+// import Main from './components/main/Main';
+import Blogs from './components/blogs/Blogs';
+import AddBlog from './components/blogs/AddBlog';
+import About from './components/pages/About';
+// import Footer from './components/layouts/Footer';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
-        <Header/>
-        <Main />
-        <Footer />
-      </div>
+      <Provider>
+        <Router>
+        <div className="container">
+          <Header/>
+          <Switch>
+            <Route exact path="/" component={Blogs} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/blog/create" component={AddBlog} />
+          </Switch>
+        </div>
+        </Router>
+      </Provider>
     );
   }
 }
