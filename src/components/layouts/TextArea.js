@@ -6,7 +6,7 @@ const TextArea = ({
     name,
     changeEvent,
     placeholder,
-    defaultValue
+    value
 }) => {
   return (
     <React.Fragment>
@@ -22,7 +22,8 @@ const TextArea = ({
                             onChange={changeEvent}
                             className="textarea" 
                             placeholder={placeholder}
-                        >{defaultValue}
+                            value={value}
+                        >
                         </textarea>
                     </p>
                 </div>

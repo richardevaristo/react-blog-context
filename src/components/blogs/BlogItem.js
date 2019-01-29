@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Consumer } from '../context'
-
+import { Link } from 'react-router-dom'
 // Array of month names 
 import months from '../variables/months'
 
@@ -49,10 +49,6 @@ export default class BlogItem extends Component {
                         <i className="fa fa-list-alt blogPostLinkIconStyles"></i> {' '}
                         {category}
                     </p>
-                    <p className="level-item">
-                        <i className="fa fa-tags blogPostLinkIconStyles"></i> {' '}
-                        Travel
-                    </p>
                 </div>
             </nav>
             </React.Fragment>
@@ -82,11 +78,23 @@ export default class BlogItem extends Component {
                                     onClick   = { this.toggleShowContent }
                                     style     = { {cursor:'pointer'} }
                                 ></i>
+                                
                                 <i 
                                     className = "fa fa-times is-pulled-right has-text-danger"
                                     onClick   = {() => this.deleteBlog(this.props.blog.id,dispatch) }
                                     style     = {{cursor: 'pointer'}}
                                 ></i>
+                                <Link to={{
+                                    pathname: `/blog/edit/${this.props.blog.id}`,
+                                    state: {
+                                        blog: this.props.blog
+                                    }
+                                }}>
+                                <i 
+                                    className = "fa fa-pencil is-pulled-right"
+                                    style     = {{cursor: 'pointer'}}
+                                ></i>
+                                </Link>
                             </h1>
                             {this.state.showBlog && this.showContent(this.props.blog)}
                         </div>

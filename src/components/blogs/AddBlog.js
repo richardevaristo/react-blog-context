@@ -35,7 +35,8 @@ export default class AddBlog extends Component {
             content,
             author,
             category,
-            created_at: date
+            created_at: date,
+            updated_at: ''
         }
 
         dispatch({type: 'ADD_BLOG', payload: newBlog});

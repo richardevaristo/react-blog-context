@@ -22,7 +22,7 @@ export default class Blogs extends Component {
                   />)}
               </div>
               <div className="column is-4">
-                <Sidebar />
+                <Sidebar blogs={blogs}/>
               </div>
             </div>
             </React.Fragment>

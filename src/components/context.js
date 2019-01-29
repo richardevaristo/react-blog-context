@@ -18,16 +18,11 @@ const reducer = (state, action) => {
         case 'UPDATE_BLOG':
             return {
                 ...state,
-                blogs: state.blogs.map(blog => {
-                    if(blog.id === action.payload.id){
-                        action.payload.targets.map(item => {
-                            this.setState({
-                                [item.name] : item.value
-                            })
-                        })
-                    }
-                    return blog;
-                })
+                blogs: 
+                    state.blogs.map(blog => 
+                        blog.id === action.payload.id ?
+                        action.payload : blog
+                    )
             }
         default :
             return state
@@ -46,7 +41,8 @@ export class Provider extends Component {
                 content   : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus reiciendis accusantium ullam ad at, delectus alias nemo exercitationem sunt rem omnis facilis neque, architecto nostrum quibusdam? Sint harum incidunt voluptatibus!',
                 author    : 'John Doe',
                 category  : 'Travel',
-                created_at: '2019-01-20'
+                created_at: '2019-01-20',
+                updated_at: ''
               },
               {
                 id        : v4(),
@@ -55,7 +51,8 @@ export class Provider extends Component {
                 content   : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus reiciendis accusantium ullam ad at, delectus alias nemo exercitationem sunt rem omnis facilis neque, architecto nostrum quibusdam? Sint harum incidunt voluptatibus!',
                 author    : 'Jane Smith',
                 category  : 'Travel',
-                created_at: '2019-02-03'
+                created_at: '2019-02-03',
+                updated_at: ''
               },
               {
                 id        : v4(),
@@ -64,7 +61,8 @@ export class Provider extends Component {
                 content   : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus reiciendis accusantium ullam ad at, delectus alias nemo exercitationem sunt rem omnis facilis neque, architecto nostrum quibusdam? Sint harum incidunt voluptatibus!',
                 author    : 'John Doe',
                 category  : 'Travel',
-                created_at: '2019-04-01'
+                created_at: '2019-04-01',
+                updated_at: ''
               }
             ],
             dispatch: action => {
