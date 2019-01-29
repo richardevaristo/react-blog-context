@@ -1,7 +1,8 @@
 {
-  "name": "react-blog",
+  "name": "react-blog-context",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://richardevaristo.github.io/react-blog-context",
   "dependencies": {
     "bulma": "^0.7.2",
     "gh-pages": "^2.0.1",
@@ -12,6 +13,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

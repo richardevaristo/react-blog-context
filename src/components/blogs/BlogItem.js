@@ -85,7 +85,7 @@ export default class BlogItem extends Component {
                                     style     = {{cursor: 'pointer'}}
                                 ></i>
                                 <Link to={{
-                                    pathname: `/blog/edit/${this.props.blog.id}`,
+                                    pathname: `/blog/edit/${this.props.blog.slug}`,
                                     state: {
                                         blog: this.props.blog
                                     }
