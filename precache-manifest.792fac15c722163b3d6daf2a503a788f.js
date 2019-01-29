@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/github.io/react-blog-context/static/js/runtime~main.8f7d67d5.js"
   },
   {
-    "revision": "81972f2e543c69ad9cc8",
-    "url": "/github.io/react-blog-context/static/js/main.81972f2e.chunk.js"
+    "revision": "0c20033473ee188bbb39",
+    "url": "/github.io/react-blog-context/static/js/main.0c200334.chunk.js"
   },
   {
-    "revision": "9d5d66d3418a5658dcf8",
-    "url": "/github.io/react-blog-context/static/js/1.9d5d66d3.chunk.js"
+    "revision": "7cfcd68861eda0e20023",
+    "url": "/github.io/react-blog-context/static/js/1.7cfcd688.chunk.js"
   },
   {
-    "revision": "81972f2e543c69ad9cc8",
+    "revision": "0c20033473ee188bbb39",
     "url": "/github.io/react-blog-context/static/css/main.eebb6bad.chunk.css"
   },
   {
-    "revision": "9d5d66d3418a5658dcf8",
+    "revision": "7cfcd68861eda0e20023",
     "url": "/github.io/react-blog-context/static/css/1.9496e237.chunk.css"
   },
   {
-    "revision": "7e492fa4219a7ce69b9c98a23e151cde",
+    "revision": "802cdd3ef0b5ebf94a14473a3b2ee4b7",
     "url": "/github.io/react-blog-context/index.html"
   }
 ];
